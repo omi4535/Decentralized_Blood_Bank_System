@@ -1,0 +1,28 @@
+package com.blood_bank_system.servlets;
+
+import java.io.IOException;
+
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+@WebServlet("/details")
+public class details_controller extends HttpServlet {
+	
+	public void doGet(HttpServletRequest request, HttpServletResponse res) throws IOException {
+		String idParameter = request.getParameter("curr_id");
+	    
+	    if (idParameter != null && !idParameter.isEmpty()) {
+	        int id = Integer.parseInt(idParameter);
+	        // Process the bank ID as needed
+	        System.out.print(id);
+	    } else {
+	        // Handle the case when the ID parameter is missing or empty
+	    	System.out.print("fail");
+	    }
+		
+		res.sendRedirect("bank_details.jsp");
+	}
+
+}

@@ -1,0 +1,74 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blood Bank Entries</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<style>
+.card{
+	background-color:black;
+}
+
+</style>
+<body>
+	<%@ include file="NavBar.jsp"%>
+	<div class="container">
+	 <div class="collapse navbar-collapse" id="navbarNav">
+		<h2>Blood Bank Entries
+		<form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+    </h2>
+    </div>
+		<div class="container">
+			<c:forEach items="${bloodBanks}" var="bloodBank">
+				<div class="row" style="padding=10px;">
+					<div class="col">
+						<div class="card blood-bank-card border-danger mb-3">
+							 <div class="card-header">
+								<h2 class="card-title">Name : ${bloodBank.name}</h2>
+								</div>
+								<div class="card-body text-danger">
+								<p class="card-text">Address : ${bloodBank.address}</p>
+								<p class="card-text">Region : ${bloodBank.region}</p>
+								<p class="card-text">Contact : ${bloodBank.contactNumber}</p>
+								<p class="card-text">Email: ${bloodBank.email}</p>
+							</div>
+						</div>
+					</div>
+					<!-- Repeat the above code for each blood bank -->
+				</div>
+			</c:forEach>
+		</div>
+
+		<!--  <table class="table table-bordered">
+            
+            <tbody>
+                <c:forEach items="${bloodBanks}" var="bloodBank">
+                    <tr>
+                        <td>${bloodBank.name}</td>
+                        <td>${bloodBank.address}</td>
+                        <td>${bloodBank.region}</td>
+                        <td>${bloodBank.contactNumber}</td>
+                        <td>${bloodBank.email}</td>
+                    </tr>
+                </c:forEach>
+            </tbody>
+        </table>-->
+	</div>
+	<%@ include file="footer.jsp"%>
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/@popperjs/core@1.16.0/dist/umd/popper.min.js"></script>
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

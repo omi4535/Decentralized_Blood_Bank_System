@@ -1,0 +1,49 @@
+package com.blood_bank_system.DAO;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+public class BloodBankDAO {
+
+    private String jdbcURL = "jdbc:mysql://localhost:3306/your_database_name";
+    private String jdbcUsername = "your_username";
+    private String jdbcPassword = "your_password";
+
+    private static final String INSERT_BLOOD_BANK_SQL = "INSERT INTO blood_banks (name, address, region, contact_number, email, " +
+            "operational_hours, special_services, contact_person_name, contact_person_designation, contact_person_phone, " +
+            "contact_person_email, certification_details, accreditation_details, storage_capacity, blood_components_handled, " +
+            "testing_facilities, transfusion_services, other_activities, additional_information) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+
+    public void addBloodBank(blood_bank bloodBank) {
+        try (Connection connection = DriverManager.getConnection(jdbcURL, jdbcUsername, jdbcPassword);
+             PreparedStatement preparedStatement = connection.prepareStatement(INSERT_BLOOD_BANK_SQL)) {
+
+            preparedStatement.setString(1, bloodBank.getName());
+            preparedStatement.setString(2, bloodBank.getAddress());
+            preparedStatement.setString(3, bloodBank.getRegion());
+            preparedStatement.setString(4, bloodBank.getContactNumber());
+            preparedStatement.setString(5, bloodBank.getEmail());
+            preparedStatement.setString(6, bloodBank.getOperationalHours());
+            preparedStatement.setString(7, bloodBank.getSpecialServices());
+            preparedStatement.setString(8, bloodBank.getContactPersonName());
+            preparedStatement.setString(9, bloodBank.getContactPersonDesignation());
+            preparedStatement.setString(10, bloodBank.getContactPersonPhone());
+            preparedStatement.setString(11, bloodBank.getContactPersonEmail());
+            preparedStatement.setString(12, bloodBank.getCertificationDetails());
+            preparedStatement.setString(13, bloodBank.getAccreditationDetails());
+            preparedStatement.setInt(14, bloodBank.getStorageCapacity());
+            preparedStatement.setString(15, bloodBank.getBloodComponentsHandled());
+            preparedStatement.setString(16, bloodBank.getTestingFacilities());
+            preparedStatement.setString(17, bloodBank.getTransfusionServices());
+            preparedStatement.setString(18, bloodBank.getOtherActivities());
+            preparedStatement.setString(19, bloodBank.getAdditionalInformation());
+
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+}
+

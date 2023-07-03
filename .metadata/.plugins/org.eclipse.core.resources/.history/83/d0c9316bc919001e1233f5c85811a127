@@ -1,0 +1,18 @@
+package com.blood_bank_system.servlets;
+
+import java.io.IOException;
+
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+@WebServlet("/details")
+public class details_controller extends HttpServlet {
+	
+	public void doPost(HttpServletRequest request, HttpServletResponse res) throws IOException {
+		System.out.print("asdf");
+//		res.sendRedirect("bank_details.jsp");
+	}
+
+}

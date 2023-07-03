@@ -1,0 +1,15 @@
+package com.blood_bank_system.servlets;
+
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+@WebServlet("/details")
+public class details_controller extends HttpServlet {
+	
+	public void dopost(HttpServletRequest request, HttpServletResponse res) {
+		
+	}
+
+}

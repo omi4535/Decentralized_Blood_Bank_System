@@ -1,0 +1,53 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Blood Bank Registration Details</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Blood Bank Registration Details</h1>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Field</th>
+                    <th>Value</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Blood Bank Name</td>
+                    <td>${bloodBank.getName()}</td>
+                </tr>
+                <tr>
+                    <td>Address</td>
+                    <td>${bloodBank.getAddress()}</td>
+                </tr>
+                <tr>
+                    <td>City</td>
+                    <td>${bloodBank.getCity()}</td>
+                </tr>
+                <tr>
+                    <td>State</td>
+                    <td>${bloodBank.getState()}</td>
+                </tr>
+                <tr>
+                    <td>Country</td>
+                    <td>${bloodBank.getCountry()}</td>
+                </tr>
+                <tr>
+                    <td>Contact</td>
+                    <td>${bloodBank.getContact()}</td>
+                </tr>
+                <tr>
+                    <td>Email</td>
+                    <td>${bloodBank.getEmail()}</td>
+                </tr>
+                <!-- Add more rows as needed for other fields -->
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
