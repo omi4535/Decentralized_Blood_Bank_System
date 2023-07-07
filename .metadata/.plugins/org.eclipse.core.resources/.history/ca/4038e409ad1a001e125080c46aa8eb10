@@ -1,0 +1,99 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blood Bank Portal</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .navbar-brand {
+            font-weight: bold;
+        }
+
+        .navbar-nav .nav-link {
+            font-size: 18px;
+        }
+        .cont {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    text-align: center;
+    color: #333;
+}
+
+.cont h1 {
+    color: #d33f49;
+    margin-bottom: 20px;
+}
+
+.cont .form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.cont label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.cont input[type="text"],
+.cont input[type="date"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+.cont input[type="submit"] {
+    background-color: #d33f49;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.cont input[type="submit"]:hover {
+    background-color: #c32d3b;
+}
+        
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="cont">
+            <a class="navbar-brand" href="index.jsp">Blood Bank Portal</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.jsp">Home</a>
+                    </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="blood_groups_info.jsp">Blood Related Info</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="registration.jsp">Register</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="banks">Show All Banks</a>
+                    </li>
+                </ul>
+                
+            </div>
+        </div>
+    </nav>
+
+</body>
+</html>

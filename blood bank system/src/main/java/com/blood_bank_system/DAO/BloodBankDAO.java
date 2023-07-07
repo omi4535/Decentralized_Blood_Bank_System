@@ -23,12 +23,13 @@ public class BloodBankDAO {
 			+ "contact_person_email, certification_details, accreditation_details, storage_capacity, blood_components_handled, "
 			+ "testing_facilities, transfusion_services, other_activities, additional_information) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
-	public boolean addBloodBank(blood_bank bloodBank) throws ClassNotFoundException {
+	public int addBloodBank(blood_bank bloodBank) throws ClassNotFoundException {
+		int id = 0;
 		Class.forName("com.mysql.cj.jdbc.Driver");
 		try (
 
 				Connection connection = DriverManager.getConnection(jdbcURL, jdbcUsername, jdbcPassword);
-				PreparedStatement preparedStatement = connection.prepareStatement(INSERT_BLOOD_BANK_SQL)) {
+				PreparedStatement preparedStatement = connection.prepareStatement(INSERT_BLOOD_BANK_SQL, Statement.RETURN_GENERATED_KEYS)) {
 
 			preparedStatement.setString(1, bloodBank.getName());
 			preparedStatement.setString(2, bloodBank.getAddress());
@@ -51,11 +52,17 @@ public class BloodBankDAO {
 			preparedStatement.setString(19, bloodBank.getAdditionalInformation());
 
 			preparedStatement.executeUpdate();
+		
+			ResultSet generatedKeys = preparedStatement.getGeneratedKeys();
+            if (generatedKeys.next()) {
+                id = generatedKeys.getInt(1);
+                System.out.println("Generated ID: " + id);
+            }
 		} catch (SQLException e) {
 			e.printStackTrace();
-			return false;
+			return 0;
 		}
-		return true;
+		return id;
 	}
 
 	public List<blood_bank> getAllBloodBanks() throws ClassNotFoundException {

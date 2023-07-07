@@ -61,7 +61,8 @@ body {
 			<div class="row">
 				<div class="col-md-6">
 					<div class="footer-links">
-						<a href="index.jsp">Home</a> <a href="registration.jsp">Register</a>
+						<a href="index.jsp">Home</a> 
+						<a href="registration.jsp">Register</a>
 						<a href="All_banks.jsp">Show All Banks</a>
 					</div>
 				</div>

@@ -4,11 +4,13 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.blood_bank_system.DAO.BloodBankDAO;
 import com.blood_bank_system.tables.blood_bank;
 
 import java.io.IOException;
+import java.sql.ResultSet;
 
 @WebServlet("/register")
 public class regi_controller extends HttpServlet {
@@ -22,7 +24,8 @@ public class regi_controller extends HttpServlet {
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String name = request.getParameter("name");
+    	HttpSession s = request.getSession();
+    	String name = request.getParameter("name");
         String address = request.getParameter("address");
         String region = request.getParameter("region");
         String contactNumber = request.getParameter("contactNumber");
@@ -46,12 +49,15 @@ public class regi_controller extends HttpServlet {
                 contactPersonName, contactPersonDesignation, contactPersonPhone, contactPersonEmail, certificationDetails,
                 accreditationDetails, storageCapacity, bloodComponentsHandled, testingFacilities, transfusionServices,
                 otherActivities, additionalInformation);
-
         try {
-			if(bloodBankDAO.addBloodBank(bloodBank)) {
-				 response.sendRedirect("success.html");
+        int id = bloodBankDAO.addBloodBank(bloodBank);
+        
+			if(id!=0) {
+				s.setAttribute("id", ""+id);
+				s.setAttribute("registered", true);
+				 response.sendRedirect("create_administator.jsp");
 			}else {
-				 response.sendRedirect("registrationa.html");
+				 response.sendRedirect("registration.html");
 			}
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block

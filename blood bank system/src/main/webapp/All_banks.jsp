@@ -53,7 +53,7 @@ width: 100%;border: none;
 		<input type="hidden" name="curr_id" value="${bloodBank.id}">
 			
 		<a href="details?id=${bloodBank.id}">
-			 <div class="row" style="">
+			 <div class="row" >
 				<div class="col">
 					<div class="card blood-bank-card border-danger mb-3">
 						<div class="card-header">
@@ -70,7 +70,7 @@ width: 100%;border: none;
 						</div>
 					</div>
 				</div>
-				<!-- Repeat the above code for each blood bank -->
+					<!-- Repeat the above code for each blood bank -->
 			</div>
 				</a>
 		</c:forEach>

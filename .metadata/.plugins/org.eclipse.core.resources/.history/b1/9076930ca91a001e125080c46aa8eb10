@@ -1,0 +1,46 @@
+package com.blood_bank_system.DAO;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+public class inventoryDAO {
+	private String jdbcURL = "jdbc:mysql://localhost:3306/blood_bank";
+	private String jdbcUsername = "root";
+	private String jdbcPassword = "12345";
+
+	public int getInventoryID(int bloodBankID, int bloodGroupID) {
+	    int inventoryID = 0;
+	    try {
+	    	Class.forName("com.mysql.cj.jdbc.Driver");
+	    	Connection connection = DriverManager.getConnection(jdbcURL, jdbcUsername, jdbcPassword);
+	    	String sql = "SELECT inventory_id FROM blood_inventory WHERE blood_bank_id = ? AND blood_group_id = ?";
+		     
+			PreparedStatement statement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+					
+	          statement.setInt(1, bloodBankID);
+	        statement.setInt(2, bloodGroupID);
+	        
+	        // Execute the query
+	        ResultSet resultSet = statement.executeQuery();
+	        
+	        // Check if a result is found and retrieve the inventory ID
+	        if (resultSet.next()) {
+	            inventoryID = resultSet.getInt("inventory_id");
+	        }
+	        
+	        // Close the resources
+	        resultSet.close();
+	        statement.close();
+	        connection.close();
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	    }
+	    return inventoryID;
+	}
+
+
+}

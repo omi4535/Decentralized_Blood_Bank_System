@@ -1,0 +1,32 @@
+package com.blood_bank_system.DAO;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+import com.blood_bank_system.tables.admistrator;
+
+public class adminstratorDAO {
+
+	 private Connection connection;
+	    
+	    // Constructor to initialize the connection
+	    
+	    public void insertAdministrator(admistrator administrator) throws ClassNotFoundException {
+	        String sql = "INSERT INTO administrators (blood_bank_id, name, email, username, password) VALUES (?, ?, ?, ?, ?)";
+	        try {
+	        	Class.forName("com.mysql.cj.jdbc.Driver");
+	        	
+	            PreparedStatement pstmt = connection.prepareStatement(sql);
+	            pstmt.setInt(1, administrator.getAdm_id());
+	            pstmt.setString(2, administrator.getName());
+	            pstmt.setString(3, administrator.getEmail());
+	            pstmt.setString(4, administrator.getUname());
+	            pstmt.setString(5, administrator.getPass());
+	            pstmt.executeUpdate();
+	            pstmt.close();
+	        } catch (Exception e) {
+	            e.printStackTrace();
+	        }
+	    }
+}

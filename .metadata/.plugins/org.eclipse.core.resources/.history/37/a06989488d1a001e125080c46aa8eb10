@@ -1,0 +1,29 @@
+package com.blood_bank_system.DAO;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+
+import com.blood_bank_system.tables.admistrator;
+
+public class adminstratorDAO {
+
+	 private Connection connection;
+	    
+	    // Constructor to initialize the connection
+	    
+	    public void insertAdministrator(admistrator administrator) {
+	        String sql = "INSERT INTO administrators (blood_bank_id, name, email, username, password) VALUES (?, ?, ?, ?, ?)";
+	        try {
+	            PreparedStatement pstmt = connection.prepareStatement(sql);
+	            pstmt.setInt(1, administrator.getBloodBankId());
+	            pstmt.setString(2, administrator.getName());
+	            pstmt.setString(3, administrator.getEmail());
+	            pstmt.setString(4, administrator.getUsername());
+	            pstmt.setString(5, administrator.getPassword());
+	            pstmt.executeUpdate();
+	            pstmt.close();
+	        } catch (SQLException e) {
+	            e.printStackTrace();
+	        }
+	    }
+}

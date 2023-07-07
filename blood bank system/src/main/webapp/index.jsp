@@ -19,6 +19,7 @@
     <form method="post" action="banks">
     	<button type="submit"> show all banks</button>
     </form>
+    <a href="login.jsp"> <button>admin login</button></a>
     
      <%@ include file="footer.jsp"  %>
 

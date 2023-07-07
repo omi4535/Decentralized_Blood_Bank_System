@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,13 +9,35 @@
     <title>Blood Bank Portal</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
-        .navbar-brand {
-            font-weight: bold;
-        }
+        .navbar {
+    background-color: #333;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+  }
 
-        .navbar-nav .nav-link {
-            font-size: 18px;
-        }
+  .navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+  }
+
+  .navbar ul li {
+    margin-right: 15px;
+  }
+
+  .navbar ul li a {
+    color: #fff;
+    text-decoration: none;
+  }
+
+  .navbar ul li a:hover {
+    text-decoration: underline;
+  }
+        
     </style>
 </head>
 <body>
@@ -29,11 +52,14 @@
                     <li class="nav-item">
                         <a class="nav-link" href="index.jsp">Home</a>
                     </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="blood_groups_info.jsp">Blood Related Info</a>
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link" href="registration.jsp">Register</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/all_banks">Show All Banks</a>
+                        <a class="nav-link" href="banks">Show All Banks</a>
                     </li>
                 </ul>
                 
