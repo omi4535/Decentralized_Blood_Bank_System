@@ -11,7 +11,7 @@
             background-color: #f1f1f1;
         }
 
-        .container {
+        .container1 {
             max-width: 600px;
             margin: 0 auto;
             padding: 20px;
@@ -57,7 +57,9 @@
     </style>
 </head>
 <body>
-    <div class="container">
+ <%@ include file="NavBar.jsp"  %>
+<br><br>
+    <div class="container1">
         <h1>Edit Inventory Information</h1>
        
      
@@ -66,20 +68,23 @@
             <c:if test="${inventory.inventoryId == idd}">
                 <form action="updateInventory" method="POST">
                     <div class="inventory-entry">
-                        <h3>Inventory ID: ${inventory.inventoryId}</h3>
-                        <label for="bloodGroup">Blood Group:</label>
-                        <input type="text" name="bloodGroup" value="${inventory.bloodGroup}" readonly><br>
+                    	<input hidden name="in_id" value="${inventory.inventoryId}" />
+                        <h3>Inventory ID: ${inventory.inventoryId}    &#160; &#160; &#160; &#160; &#160; &#160; &#160;  Blood Group: ${inventory.bloodGroup}</h3>
+                            
                         <label for="availableUnits">Available Units:</label>
-                        <input type="text" name="availableUnits" value="${inventory.availableUnits}" placeholder="Enter available units"><br>
-                        <label for="lastUpdatedDate">Last Updated Date:</label>
-                        <input type="text" name="lastUpdatedDate" value="${inventory.lastUpdatedDate}" placeholder="Enter last updated date"><br>
+                        <input type="text" name="availableUnits" value="${inventory.availableUnits}" placeholder="Enter available units"><br><br>
+                        <label for="lastUpdatedDate">Last Updated Date: &#160; &#160; &#160; &#160;</label>
+                        <input type="date" name="lastUpdatedDate" value="${inventory.lastUpdatedDate}" placeholder="Enter last updated date"><br><br>
                         <label for="storageLocation">Storage Location:</label>
-                        <input type="text" name="storageLocation" value="${inventory.storageLocation}" placeholder="Enter storage location"><br>
+                        <input type="text" name="storageLocation" value="${inventory.storageLocation}" placeholder="Enter storage location"><br><br>
                     </div>
                     <button type="submit">Update Inventory</button>
                 </form>
             </c:if>
         </c:forEach>
     </div>
+    <br>
+    
+     <%@ include file="footer.jsp"  %>
 </body>
 </html>

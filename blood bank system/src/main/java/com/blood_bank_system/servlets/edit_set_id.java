@@ -8,9 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-/**
- * Servlet implementation class edit_set_id
- */
+
 @WebServlet("/edit_set_id")
 public class edit_set_id extends HttpServlet {
 	

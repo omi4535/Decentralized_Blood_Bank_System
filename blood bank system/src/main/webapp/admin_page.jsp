@@ -13,16 +13,8 @@
             padding: 0;
         }
 
-        .container {
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 20px;
-            background-color: #fff;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-
         h1 {
-            color: #333;
+            color: #b9132f;
             margin-bottom: 20px;
         }
 
@@ -44,7 +36,7 @@
         .button {
             display: inline-block;
             padding: 8px 12px;
-            background-color: #4caf50;
+            background-color: #b9132f;
             color: #fff;
             border: none;
             border-radius: 4px;
@@ -53,43 +45,66 @@
         }
 
         .button:hover {
-            background-color: #45a049;
+            background-color: #870f25;
         }
 
         .button-red {
-            background-color: #f44336;
+            background-color: #e74c3c;
         }
 
         .button-red:hover {
-            background-color: #d32f2f;
+            background-color: #c0392b;
         }
 
         .button-blue {
-            background-color: #2196f3;
+            background-color: #3498db;
         }
 
         .button-blue:hover {
-            background-color: #1976d2;
+            background-color: #2980b9;
         }
 
-
-        .containe {
-            max-width: 600px;
+        .container1 {
+            max-width: 1000px;
             margin: 30px auto;
             padding: 20px;
-            background-color: #fff;  
-            
-            
+            background-color: #fff;
             border: 1px solid #ccc;
             border-radius: 4px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
+
+        .blood-bank {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #eee;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .blood-bank h2 {
+            color: #b9132f;
+            margin-bottom: 10px;
+        }
+
+        .blood-bank p {
+            color: #555;
+            margin-bottom: 10px;
+        }
+
+        .blood-bank .button {
+            margin-top: 10px;
+        }
     </style>
 </head>
 <body>
- 
-
-     <div class="container">
+    <%@ include file="NavBar.jsp"  %>
+    <%
+    	if(session.getAttribute("admin_id")==null){
+    		response.sendRedirect("login.jsp");
+    	}
+    %>
+    <div class="container1">
         <h1>Blood Inventory Admin</h1>
         <table>
             <tr>
@@ -99,34 +114,47 @@
                 <th>Available Units</th>
                 <th>Last Updated Date</th>
                 <th>Storage Location</th>
-                 <th>Editor id</th>
+                <th>Editor id</th>
                 <th>Actions</th>
             </tr>
             <c:forEach items="${inventories}" var="bloodInventory">
                 <tr>
-                	 <td>${bloodInventory.inventoryId}</td>
+                	<td>${bloodInventory.inventoryId}</td>
                     <td>${bloodInventory.bloodBankId}</td>
                     <td>${bloodInventory.bloodGroup}</td>
                     <td>${bloodInventory.availableUnits}</td>
                     <td>${bloodInventory.lastUpdatedDate}</td>
                     <td>${bloodInventory.storageLocation}</td>
-                     <td>${bloodInventory.editor}</td>
-                    <td>
-                    <form action="edit_set_id" method="post">
-                    	<input hidden name="in_id1" value="${bloodInventory.inventoryId}" />
-                        <button class="button button-blue">Edit</button>
-                      </form>
-                       <form action="delete_inventory" method="post">
-                       <input hidden name="in_id" value="${bloodInventory.inventoryId}" />
-                        <button class="button button-red">Delete</button>
-                    </form>
+                    <td>${bloodInventory.editor}</td>
+                    <td class="button_col" style="text-align: center;">
+                        <div class="button-container">
+                            <form action="edit_set_id" method="post">
+                                <input hidden name="in_id1" value="${bloodInventory.inventoryId}" />
+                                <button class="button button-blue">Edit</button>
+                            </form>
+                            <form action="delete_inventory" method="post">
+                                <input hidden name="in_id" value="${bloodInventory.inventoryId}" />
+                                <button class="button button-red">Delete</button>
+                            </form>
+                        </div>
                     </td>
                 </tr>
             </c:forEach>
         </table>
-       <form action="add_new_inventory.jsp" method="post"><button class="button">Add New Blood Inventory</button></form>
+        <br>
+        <form action="add_new_inventory.jsp" method="post">
+            <button class="button" style="display: block; margin: 0 auto;">Add New Blood Inventory</button>
+        </form>
+
+        <div class="blood-bank">
+            <h2>Blood Bank Information</h2>
+            <p>Name: ABC Blood Bank</p>
+            <p>Address: 123 Main Street, City</p>
+            <p>Contact: +1 123 456 7890</p>
+            <button class="button">Visit Blood Bank Website</button>
+        </div>
     </div>
-     <%@ include file="footer.jsp"  %>
-    
+    <%@ include file="footer.jsp"  %>
 </body>
 </html>
+

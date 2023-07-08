@@ -49,16 +49,17 @@ public class inventoryDAO {
 	
 	
 	
-	public void updateBloodInventory(int inventoryID, int availableUnits, Date lastUpdatedDate) {
+	public void updateBloodInventory(String inventoryID, String availableUnits, String lastUpdatedDate,String StorageLoc) {
 	    try {
 	    	
 	    	Connection connection = getConnection();
 	        // Prepare the SQL statement
-	        String sql = "UPDATE blood_inventory SET available_units = ?, last_updated_date = ? WHERE inventory_id = ?";
+	        String sql = "UPDATE blood_inventory SET available_units = ?, last_updated_date = ?, storage_location=? WHERE inventory_id = ?";
 	        PreparedStatement statement = connection.prepareStatement(sql);
-	        statement.setInt(1, availableUnits);
-	        statement.setDate(2, new java.sql.Date(lastUpdatedDate.getTime()));
-	        statement.setInt(3, inventoryID);
+	        statement.setString(1, availableUnits);
+	        statement.setString(2, lastUpdatedDate);
+	        statement.setString(3, StorageLoc);
+	        statement.setString(4, inventoryID); 
 	        
 	        // Execute the update
 	        int rowsAffected = statement.executeUpdate();
