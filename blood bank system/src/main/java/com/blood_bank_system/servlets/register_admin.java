@@ -35,7 +35,7 @@ public class register_admin extends HttpServlet {
 		admin.setPass(request.getParameter("password"));
 		adminstratorDAO dao = new adminstratorDAO();
 		if(dao.insertAdministrator(admin)!=0) {
-			response.sendRedirect("success.jsp");
+			response.sendRedirect("admin_page.jsp");
 		}else {
 			response.sendRedirect("fail.jsp");
 		}

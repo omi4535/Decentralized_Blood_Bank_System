@@ -56,7 +56,14 @@
         }
     </style>
 </head>
-<body>
+<body style="background-color:#82bbed">
+ <%response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
+ response.setHeader("Pragma", "no-cache");
+ response.setHeader("Expires", "0");
+    	if(session.getAttribute("admin_id")==null){
+    		response.sendRedirect("login.jsp");
+    	}
+    %>
  <%@ include file="NavBar.jsp"  %>
 <br><br>
     <div class="container1">

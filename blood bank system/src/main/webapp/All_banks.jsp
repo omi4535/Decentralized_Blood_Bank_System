@@ -19,8 +19,11 @@
 width: 100%;border: none;
       outline: none; text-align: left;
 }
+.custom-bg{
+background-color:#000000;
+}
 </style>
-<body>
+<body style="background-color:#82bbed">
 	<%@ include file="NavBar.jsp"%>
 	<div class="container mt-2">
 		<div class="row">
@@ -48,14 +51,14 @@ width: 100%;border: none;
 
 	<!--  <form method="post" action="details">-->
 	
-	<div class="container">
+	<div class="container ">
 		<c:forEach items="${bloodBanks}" var="bloodBank">
 		<input type="hidden" name="curr_id" value="${bloodBank.id}">
 			
 		<a href="details?id=${bloodBank.id}">
 			 <div class="row" >
 				<div class="col">
-					<div class="card blood-bank-card border-danger mb-3">
+					<div class=" card blood-bank-card border-danger mb-3 ">
 						<div class="card-header">
 							<h2 class="card-title">
 								ID: ${bloodBank.id}<br> Name : ${bloodBank.name}

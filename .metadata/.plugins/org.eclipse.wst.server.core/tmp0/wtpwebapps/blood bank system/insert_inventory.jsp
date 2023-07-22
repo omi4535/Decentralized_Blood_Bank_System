@@ -65,9 +65,15 @@
         }
     </style>
 </head>
-<body>
+<body style="background-color:#82bbed">
  <%@ include file="NavBar.jsp"  %>
-
+ <%response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
+ response.setHeader("Pragma", "no-cache");
+ response.setHeader("Expires", "0");
+    	if(session.getAttribute("admin_id")==null){
+    		response.sendRedirect("login.jsp");
+    	}
+    %>
     <div class="containe">
         <h1>Blood Inventory Management</h1>
         <form action="addInventory.jsp" method="post">

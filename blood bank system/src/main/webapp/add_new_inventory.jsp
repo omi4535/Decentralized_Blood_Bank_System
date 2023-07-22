@@ -12,7 +12,7 @@
             padding: 20px;
         }
 
-        .container {
+        .container1 {
             background-color: #fff;
             border-radius: 5px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -58,8 +58,16 @@
         }
     </style>
 </head>
-<body>
-    <div class="container">
+<body style="background-color:#82bbed">
+ <%response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
+ response.setHeader("Pragma", "no-cache");
+ response.setHeader("Expires", "0");
+    	if(session.getAttribute("admin_id")==null){
+    		response.sendRedirect("login.jsp");
+    	}
+    %>
+       <%@ include file="NavBar.jsp"  %>
+    <div class="container1">
         <h1>Add Inventory</h1>
         <form action="add_inventory" method="post">
             <label for="bloodGroup">Blood Group:</label>
@@ -74,11 +82,6 @@
                 <option value="O-">O-</option>
             </select>
             
-            <label for="rh">Rhesus Factor:</label>
-            <select id="rh" name="rhesusFactor" required>
-                <option value="Positive">Positive</option>
-                <option value="Negative">Negative</option>
-            </select>
             
             <label for="availableUnits">Available Units:</label>
             <input type="text" name="availableUnits"  required>
@@ -92,6 +95,8 @@
             <input type="submit" value="Add Inventory">
         </form>
     </div>
+    <br><br>
+       <%@ include file="footer.jsp"  %>
 </body>
 </html>
     

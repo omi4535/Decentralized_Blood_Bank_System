@@ -113,8 +113,9 @@ text-align: center;
 }
 </style>
 </head>
-<body>
+<body style="background-color:#82bbed">
 	<%@ include file="NavBar.jsp"%>
+	
 	<h1>Blood Group Information</h1>
 
 	<table>

@@ -10,19 +10,17 @@
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 <style>
-body {
-	background-color: #F5F5F5;
-}
 
 .form_regi {
 	color: #8B0000;
 }
 
 .containe {
-	max-width: 600px;
-	margin: 40px auto;
+	max-width: 700px;
+	margin: 20px auto;
 	padding: 30px;
 	border-radius: 5px;
+	background-color: #ffffff;
 	box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
 }
 
@@ -75,7 +73,7 @@ background-color: #6c2020;
 </style>
 </head>
 
-<body>
+<body style="background-color:#82bbed">
 <%response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
 response.setHeader("Pragma", "no-cache");
 response.setHeader("Expires", "0");

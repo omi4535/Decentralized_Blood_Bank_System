@@ -22,7 +22,7 @@
     </style>
 </head>
 
-<body>
+<body style="background-color:#82bbed">
  <%@ include file="NavBar.jsp"  %>
     <div class="container">
         <h1 class="text-center">Registration Failed</h1>

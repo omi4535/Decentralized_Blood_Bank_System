@@ -9,9 +9,7 @@
     <title>Login</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
-        body {
-            background-color: #f8f9fa;
-        }
+       
         .login-container {
             margin-top: 100px;
             max-width: 400px;
@@ -38,7 +36,7 @@
         }
     </style>
 </head>
-<body>
+<body style="background-color:#82bbed">
 <%response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
 response.setHeader("Pragma", "no-cache");
 response.setHeader("Expires", "0");

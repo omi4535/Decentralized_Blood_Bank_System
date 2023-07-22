@@ -97,12 +97,16 @@
         }
     </style>
 </head>
-<body>
+<body style="background-color:#82bbed">
     <%@ include file="NavBar.jsp"  %>
-    <%
+    <%response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
+    response.setHeader("Pragma", "no-cache");
+    response.setHeader("Expires", "0");
     	if(session.getAttribute("admin_id")==null){
     		response.sendRedirect("login.jsp");
     	}
+    	int i=0;
+    	
     %>
     <div class="container1">
         <h1>Blood Inventory Admin</h1>
@@ -118,6 +122,7 @@
                 <th>Actions</th>
             </tr>
             <c:forEach items="${inventories}" var="bloodInventory">
+                <%i++; %>
                 <tr>
                 	<td>${bloodInventory.inventoryId}</td>
                     <td>${bloodInventory.bloodBankId}</td>
@@ -140,6 +145,11 @@
                     </td>
                 </tr>
             </c:forEach>
+            <c:if test="${i}==0">
+            	<h2>
+            		no data avaliable
+            	</h2>
+            </c:if>
         </table>
         <br>
         <form action="add_new_inventory.jsp" method="post">
